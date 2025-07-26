@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:team_portfolio/screens/home.dart';
+import 'package:portfolio/screens/home.dart';
 
 void main() {
   runApp(MyApp());
