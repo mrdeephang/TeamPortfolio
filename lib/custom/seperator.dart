@@ -7,10 +7,10 @@ class Seperator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 5,
-      width: 50,
+      width: 70,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        gradient: LinearGradient(colors: [Colors.greenAccent, Colors.pink]),
+        gradient: LinearGradient(colors: [Colors.blueAccent, Colors.black]),
       ),
     );
   }

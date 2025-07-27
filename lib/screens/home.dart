@@ -34,6 +34,8 @@ class _PortfolioState extends State<Portfolio> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
             Stack(
@@ -117,7 +119,10 @@ class _PortfolioState extends State<Portfolio> {
                     padding: EdgeInsets.all(18),
                     margin: EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      color: Colors.black,
+                      gradient: LinearGradient(
+                        colors: [Colors.blue, Colors.black],
+                      ),
+                      // color: Colors.black,
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(blurRadius: 10, color: Colors.black),
@@ -149,35 +154,52 @@ class _PortfolioState extends State<Portfolio> {
                     physics: BouncingScrollPhysics(),
                     child: Row(
                       children: [
-                        Skillcontainer(text: 'Flutter', colorx: Colors.blue),
+                        Skillcontainer(
+                          text: 'Flutter',
+                          colorx: Colors.blue,
+                          colory: Colors.black,
+                        ),
                         SizedBox(width: 5),
-                        Skillcontainer(text: 'Dart', colorx: Colors.pinkAccent),
+                        Skillcontainer(
+                          text: 'Dart',
+                          colorx: Colors.pinkAccent,
+                          colory: Colors.black,
+                        ),
                         SizedBox(width: 5),
                         Skillcontainer(
                           text: 'Git/GitHub',
-                          colorx: Colors.purpleAccent,
+                          colory: Colors.purpleAccent,
+                          colorx: Colors.black,
                         ),
                         SizedBox(width: 5),
-                        Skillcontainer(text: 'C & C++', colorx: Colors.cyan),
+                        Skillcontainer(
+                          text: 'C & C++',
+                          colorx: Colors.cyan,
+                          colory: Colors.black,
+                        ),
                         SizedBox(width: 5),
                         Skillcontainer(
                           text: 'HTML, CSS & JS',
                           colorx: Colors.redAccent,
+                          colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
                           text: 'Docker',
                           colorx: Colors.blueAccent,
+                          colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
                           text: 'Figma',
                           colorx: Colors.pinkAccent,
+                          colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
                           text: 'Canva',
                           colorx: Colors.purpleAccent,
+                          colory: Colors.black,
                         ),
                       ],
                     ),
@@ -185,38 +207,49 @@ class _PortfolioState extends State<Portfolio> {
                   SizedBox(height: 10),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
+                    physics: BouncingScrollPhysics(),
                     child: Row(
                       children: [
-                        Skillcontainer(text: 'Leadership', colorx: Colors.blue),
+                        Skillcontainer(
+                          text: 'Leadership',
+                          colorx: Colors.blue,
+                          colory: Colors.black,
+                        ),
                         SizedBox(width: 5),
                         Skillcontainer(
                           text: 'Communication',
                           colorx: Colors.pinkAccent,
+                          colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
                           text: 'Teamwork',
                           colorx: Colors.purpleAccent,
+                          colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
                           text: 'Problem Solving',
                           colorx: Colors.cyan,
+                          colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
                           text: 'Creativity',
                           colorx: Colors.redAccent,
+                          colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
                           text: 'Collaboration',
                           colorx: Colors.blueAccent,
+                          colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
                           text: 'Critical Thinking',
                           colorx: Colors.pinkAccent,
+                          colory: Colors.black,
                         ),
                       ],
                     ),
@@ -224,21 +257,32 @@ class _PortfolioState extends State<Portfolio> {
                   SizedBox(height: 10),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
+                    physics: BouncingScrollPhysics(),
                     child: Row(
                       children: [
-                        Skillcontainer(text: 'English', colorx: Colors.blue),
+                        Skillcontainer(
+                          text: 'English',
+                          colorx: Colors.blue,
+                          colory: Colors.black,
+                        ),
                         SizedBox(width: 5),
                         Skillcontainer(
                           text: 'Nepali',
                           colorx: Colors.pinkAccent,
+                          colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
                           text: 'Hindi',
                           colorx: Colors.purpleAccent,
+                          colory: Colors.black,
                         ),
                         SizedBox(width: 5),
-                        Skillcontainer(text: 'Japanese', colorx: Colors.cyan),
+                        Skillcontainer(
+                          text: 'Japanese',
+                          colorx: Colors.cyan,
+                          colory: Colors.black,
+                        ),
                       ],
                     ),
                   ),
@@ -266,7 +310,7 @@ class _PortfolioState extends State<Portfolio> {
                       children: [
                         ProjectCustom(
                           url: 'https://github.com/mrdeephang/Sajha_Bookstore',
-                          colorx: Colors.pink,
+                          colorx: Colors.black,
                           colory: Colors.blue,
                           icon: Icon(
                             Icons.android,
@@ -279,8 +323,8 @@ class _PortfolioState extends State<Portfolio> {
                         SizedBox(width: 10),
                         ProjectCustom(
                           url: 'https://github.com/mrdeephang/SugarCare',
-                          colorx: Colors.pink,
-                          colory: Colors.green,
+                          colorx: Colors.green,
+                          colory: Colors.black,
                           icon: Icon(
                             Icons.health_and_safety,
                             size: 50,
@@ -293,7 +337,7 @@ class _PortfolioState extends State<Portfolio> {
                         ProjectCustom(
                           url: 'https://github.com/mrdeephang/Radhe-Radhe',
                           colorx: Colors.blueAccent,
-                          colory: Colors.pinkAccent,
+                          colory: Colors.black,
                           icon: Icon(
                             Icons.sunny,
                             size: 50,
@@ -306,7 +350,7 @@ class _PortfolioState extends State<Portfolio> {
                         ProjectCustom(
                           url: 'https://github.com/mrdeephang/To-Do',
                           colorx: Colors.deepPurpleAccent,
-                          colory: Colors.pinkAccent,
+                          colory: Colors.black,
                           icon: Icon(Icons.task, size: 50, color: Colors.white),
                           text1: 'TO DO',
                           text2: 'Track Your Daily Tasks',
@@ -334,7 +378,9 @@ class _PortfolioState extends State<Portfolio> {
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.blue,
+                      gradient: LinearGradient(
+                        colors: [Colors.blue, Colors.black],
+                      ),
                       boxShadow: [
                         BoxShadow(blurRadius: 10, color: Colors.black),
                       ],
@@ -421,7 +467,9 @@ class _PortfolioState extends State<Portfolio> {
                   Container(
                     padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      color: Colors.blue,
+                      gradient: LinearGradient(
+                        colors: [Colors.blue, Colors.black],
+                      ),
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
@@ -482,7 +530,13 @@ class _PortfolioState extends State<Portfolio> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Icon(Icons.email, size: 28, color: Colors.black),
+                      SizedBox(width: 8),
+                      Icon(
+                        Icons.email,
+                        size: 32,
+                        color: Colors.black,
+                        shadows: [Shadow(blurRadius: 5, color: Colors.black)],
+                      ),
                       SizedBox(width: 10),
                       Text(
                         'thoklihang.deep@gmail.com',
@@ -490,22 +544,10 @@ class _PortfolioState extends State<Portfolio> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Icon(Icons.call, size: 28, color: Colors.black),
-                      SizedBox(width: 10),
-                      Text(
-                        '9847600569',
-                        style: TextStyle(fontSize: 18, color: Colors.black),
-                      ),
-                    ],
-                  ),
+
                   SizedBox(height: 5),
                   Row(
-                    spacing: 10,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       IconButton(
                         onPressed: () =>
@@ -514,6 +556,7 @@ class _PortfolioState extends State<Portfolio> {
                           FontAwesomeIcons.github,
                           size: 40,
                           color: Colors.black,
+                          shadows: [Shadow(blurRadius: 5, color: Colors.black)],
                         ),
                       ),
                       IconButton(
@@ -524,6 +567,7 @@ class _PortfolioState extends State<Portfolio> {
                           FontAwesomeIcons.linkedin,
                           size: 40,
                           color: Colors.black,
+                          shadows: [Shadow(blurRadius: 5, color: Colors.black)],
                         ),
                       ),
                       IconButton(
@@ -533,8 +577,20 @@ class _PortfolioState extends State<Portfolio> {
                           FontAwesomeIcons.xTwitter,
                           size: 40,
                           color: Colors.black,
+                          shadows: [Shadow(blurRadius: 5)],
                         ),
                       ),
+                      // SizedBox(width: 200),
+                      // FloatingActionButton(
+                      //   splashColor: Colors.pinkAccent,
+                      //   backgroundColor: Colors.black,
+                      //   onPressed: () {},
+                      //   child: Icon(
+                      //     Icons.message,
+                      //     color: Colors.white,
+                      //     size: 40,
+                      //   ),
+                      // ),
                     ],
                   ),
                   SizedBox(height: 20),
@@ -543,6 +599,9 @@ class _PortfolioState extends State<Portfolio> {
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 240, 237, 237),
                       borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(blurRadius: 20, color: Colors.black45),
+                      ],
                     ),
                     child: Column(
                       children: [
@@ -553,7 +612,7 @@ class _PortfolioState extends State<Portfolio> {
                             // labelText: 'Full Name',
                             fillColor: Colors.blue,
                             filled: false,
-                            hintText: 'Your Name',
+                            hintText: 'Full Name',
                             hintStyle: TextStyle(fontSize: 18),
                             prefixIcon: Icon(Icons.person),
                             border: OutlineInputBorder(
@@ -644,18 +703,104 @@ class _PortfolioState extends State<Portfolio> {
                   ),
                   SizedBox(height: 20),
                   Align(
+                    alignment: Alignment.center,
                     child: ElevatedButton(
-                      onPressed: () {},
-
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
+                        backgroundColor: Colors.blue,
+                        shadowColor: Colors.black,
+                        elevation: 10,
+                        visualDensity: VisualDensity.standard,
                       ),
+                      onPressed: () async {
+                        showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          animationStyle: AnimationStyle(
+                            curve: Curves.bounceInOut,
+                            duration: Duration(seconds: 2),
+                          ),
+                          builder: (context) => const Center(
+                            child: CircularProgressIndicator(
+                              backgroundColor: Colors.blue,
+                            ),
+                          ),
+                        );
+
+                        try {
+                          // Your submission logic here
+                          await Future.delayed(
+                            const Duration(seconds: 1),
+                          ); // Simulate network call
+
+                          // ignore: use_build_context_synchronously
+                          Navigator.pop(context); // Close loading
+                          // Show success
+                          showDialog(
+                            // ignore: use_build_context_synchronously
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: const Text('Success'),
+                              content: const Text(
+                                'Submitted successfully!',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              actions: [
+                                TextButton(
+                                  onPressed: () => Navigator.pop(context),
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: Colors.green,
+                                  ),
+                                  child: const Text(
+                                    'OK',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        } catch (e) {
+                          // ignore: use_build_context_synchronously
+                          Navigator.pop(context); // Close loading
+                          // Show error
+                          showDialog(
+                            // ignore: use_build_context_synchronously
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: const Text('Error'),
+                              content: Text('Failed to submit: $e'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () => Navigator.pop(context),
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: Colors.green,
+                                  ),
+
+                                  child: const Text(
+                                    'OK',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        }
+                      },
                       child: Text(
                         'Submit',
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                     ),
                   ),
+
                   SizedBox(height: 20),
                   Divider(
                     color: const Color.fromARGB(255, 63, 62, 62),
