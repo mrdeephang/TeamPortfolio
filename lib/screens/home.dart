@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/custom/customdrawer.dart';
 import 'package:portfolio/custom/projectcustom.dart';
 import 'package:portfolio/custom/seperator.dart';
 import 'package:portfolio/custom/skillcontainer.dart';
+import 'package:portfolio/custom/skillcontainer2.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Portfolio extends StatefulWidget {
@@ -17,10 +19,12 @@ class _PortfolioState extends State<Portfolio> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController subjectController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: Text(
@@ -32,7 +36,23 @@ class _PortfolioState extends State<Portfolio> {
           ),
         ),
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            scaffoldKey.currentState?.openDrawer();
+          },
+          icon: Icon(Icons.menu, color: Colors.white),
+        ),
       ),
+      // leading: Builder(
+      //   builder: (context) => IconButton(
+      //     onPressed: () {
+      //       Scaffold.of(context).openDrawer();
+      //     },
+      //     icon: Icon(Icons.menu, color: Colors.white),
+      //   ),
+      // ),
+      // ),
+      drawer: Customdrawer(),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         physics: BouncingScrollPhysics(),
@@ -46,6 +66,7 @@ class _PortfolioState extends State<Portfolio> {
                   padding: EdgeInsets.all(15),
                   height: 200,
                   decoration: BoxDecoration(
+                    border: Border.all(),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(90),
                       bottomRight: Radius.circular(90),
@@ -70,28 +91,48 @@ class _PortfolioState extends State<Portfolio> {
             Column(
               spacing: 3,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Deephang',
-                      style: TextStyle(
-                        color: Colors.pinkAccent,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
+                RichText(
+                  text: TextSpan(
+                    text: 'Deephang',
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.pinkAccent,
+                      fontWeight: FontWeight.bold,
                     ),
-                    SizedBox(width: 5),
-                    Text(
-                      'Thegim',
-                      style: TextStyle(
-                        color: Colors.blueAccent,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
+                    children: [
+                      TextSpan(
+                        text: ' Thegim',
+                        style: TextStyle(
+                          fontSize: 22,
+                          color: Colors.blue,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     Text(
+                //       'Deephang',
+                //       style: TextStyle(
+                //         color: Colors.pinkAccent,
+                //         fontSize: 22,
+                //         fontWeight: FontWeight.bold,
+                //       ),
+                //     ),
+                //     SizedBox(width: 5),
+                //     Text(
+                //       'Thegim',
+                //       style: TextStyle(
+                //         color: Colors.blueAccent,
+                //         fontSize: 22,
+                //         fontWeight: FontWeight.bold,
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 Text(
                   'Aspiring Computer Engineer',
                   style: TextStyle(color: Colors.black, fontSize: 16),
@@ -155,48 +196,56 @@ class _PortfolioState extends State<Portfolio> {
                     child: Row(
                       children: [
                         Skillcontainer(
+                          icon: FontAwesomeIcons.flutter,
                           text: 'Flutter',
                           colorx: Colors.blue,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
+                          icon: FontAwesomeIcons.dartLang,
                           text: 'Dart',
                           colorx: Colors.pinkAccent,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
+                          icon: FontAwesomeIcons.github,
                           text: 'Git/GitHub',
                           colory: Colors.purpleAccent,
                           colorx: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
+                          icon: FontAwesomeIcons.c,
                           text: 'C & C++',
                           colorx: Colors.cyan,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
+                          icon: FontAwesomeIcons.html5,
                           text: 'HTML, CSS & JS',
                           colorx: Colors.redAccent,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
-                          text: 'Docker',
+                          icon: FontAwesomeIcons.docker,
+                          text: '  Docker',
                           colorx: Colors.blueAccent,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
+                          icon: FontAwesomeIcons.figma,
                           text: 'Figma',
                           colorx: Colors.pinkAccent,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
                         Skillcontainer(
+                          icon: FontAwesomeIcons.c,
                           text: 'Canva',
                           colorx: Colors.purpleAccent,
                           colory: Colors.black,
@@ -210,43 +259,43 @@ class _PortfolioState extends State<Portfolio> {
                     physics: BouncingScrollPhysics(),
                     child: Row(
                       children: [
-                        Skillcontainer(
+                        SkillContainer(
                           text: 'Leadership',
                           colorx: Colors.blue,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
-                        Skillcontainer(
+                        SkillContainer(
                           text: 'Communication',
                           colorx: Colors.pinkAccent,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
-                        Skillcontainer(
+                        SkillContainer(
                           text: 'Teamwork',
                           colorx: Colors.purpleAccent,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
-                        Skillcontainer(
+                        SkillContainer(
                           text: 'Problem Solving',
                           colorx: Colors.cyan,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
-                        Skillcontainer(
+                        SkillContainer(
                           text: 'Creativity',
                           colorx: Colors.redAccent,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
-                        Skillcontainer(
+                        SkillContainer(
                           text: 'Collaboration',
                           colorx: Colors.blueAccent,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
-                        Skillcontainer(
+                        SkillContainer(
                           text: 'Critical Thinking',
                           colorx: Colors.pinkAccent,
                           colory: Colors.black,
@@ -260,25 +309,25 @@ class _PortfolioState extends State<Portfolio> {
                     physics: BouncingScrollPhysics(),
                     child: Row(
                       children: [
-                        Skillcontainer(
+                        SkillContainer(
                           text: 'English',
                           colorx: Colors.blue,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
-                        Skillcontainer(
+                        SkillContainer(
                           text: 'Nepali',
                           colorx: Colors.pinkAccent,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
-                        Skillcontainer(
+                        SkillContainer(
                           text: 'Hindi',
                           colorx: Colors.purpleAccent,
                           colory: Colors.black,
                         ),
                         SizedBox(width: 5),
-                        Skillcontainer(
+                        SkillContainer(
                           text: 'Japanese',
                           colorx: Colors.cyan,
                           colory: Colors.black,
@@ -739,11 +788,19 @@ class _PortfolioState extends State<Portfolio> {
                             // ignore: use_build_context_synchronously
                             context: context,
                             builder: (context) => AlertDialog(
-                              title: const Text('Success'),
+                              backgroundColor: Colors.blue,
+                              title: const Text(
+                                'Success',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                               content: const Text(
                                 'Submitted successfully!',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontSize: 16,
                                 ),
                               ),
@@ -801,7 +858,7 @@ class _PortfolioState extends State<Portfolio> {
                     ),
                   ),
 
-                  SizedBox(height: 20),
+                  SizedBox(height: 40),
                   Divider(
                     color: const Color.fromARGB(255, 63, 62, 62),
                     thickness: 1,
@@ -819,6 +876,43 @@ class _PortfolioState extends State<Portfolio> {
           ],
         ),
       ),
+      floatingActionButton: PopupMenuButton(
+        onSelected: (value) {
+          if (value == 'snackbar') _showSnackbar(context);
+          if (value == 'simpleDialog') _showsimpledialog(context);
+          if (value == 'alert') _showalertdialog(context);
+        },
+        color: Colors.blue,
+        borderRadius: BorderRadius.circular(20),
+        itemBuilder: (context) => [
+          PopupMenuItem(
+            value: 'snackbar',
+            child: Text(
+              'Snackbar',
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+          ),
+          PopupMenuItem(
+            value: 'simpleDialog',
+            child: Text(
+              'SimpleDialog',
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+          ),
+          PopupMenuItem(
+            value: 'alert',
+            child: Text(
+              'Alert',
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+          ),
+        ],
+        child: FloatingActionButton(
+          onPressed: null,
+          backgroundColor: Colors.blue,
+          child: Icon(Icons.more_vert, color: Colors.white),
+        ),
+      ),
     );
   }
 }
@@ -832,4 +926,87 @@ Future<void> _launchURL(String url) async {
   } catch (e) {
     ('Error launching URL: $e');
   }
+}
+
+void _showSnackbar(BuildContext context) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      backgroundColor: Colors.blue,
+      content: Text(
+        'Snackbar Says Hi',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      duration: Duration(milliseconds: 500),
+      behavior: SnackBarBehavior.fixed,
+      elevation: 1.0,
+      action: SnackBarAction(
+        label: 'ok',
+        onPressed: () => Navigator.pop(context),
+      ),
+    ),
+  );
+}
+
+void _showsimpledialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) => SimpleDialog(
+      title: Text(
+        'Simple Dialogue Says Hi',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      backgroundColor: Colors.blue,
+      children: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text(
+            'Ok',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+void _showalertdialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Text(
+        'Alert Dialogue Says Hi',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      backgroundColor: Colors.blue,
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text(
+            'Ok',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
 }

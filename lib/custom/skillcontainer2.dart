@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Skillcontainer extends StatelessWidget {
+class SkillContainer extends StatelessWidget {
   final String text;
   final Color colorx;
   final Color colory;
-  final IconData icon;
 
-  const Skillcontainer({
+  const SkillContainer({
     super.key,
     required this.text,
     required this.colorx,
     required this.colory,
-    required this.icon,
   });
 
   @override
@@ -24,7 +22,6 @@ class Skillcontainer extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(icon, color: Colors.white),
           SizedBox(width: 5),
           Text(text, style: TextStyle(color: Colors.white, fontSize: 18)),
         ],
